@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -14,18 +15,22 @@ public class net3 {
 		URLConnection con = urls.openConnection();
 		int size = con.getContentLength();
 		
-		
+		 
 		System.out.println(urls.getProtocol()); //프로토콜 http, https
 		System.out.println(urls.getPort()); //포트번호
 		System.out.println(urls.getFile()); //접속 파일명
 		InputStream is = urls.openStream();
 		InputStreamReader isr =  new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
+		FileWriter write = new FileWriter("login.html");
+		
+		
 		byte html[] = new byte[1024];
 		//FileOutputStream fs = new FileOutputStream("login.html");
 		String str ="";
 		while((str=br.readLine())!=null) {
 			//fs.write(html,0,size);
+			
 		}
 		br.close();
 //		fs.flush();
