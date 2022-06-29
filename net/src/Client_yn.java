@@ -16,17 +16,21 @@ public class Client_yn {
 		String notice =null;
 	
 		try {
+			sc=new Socket(ip,port);
 			System.out.println("채팅에 사용하실 아이디를 입력해주세요.");
 			String user=sn.nextLine();
 			for(;;) {
-				sc=new Socket(ip,port);
 				sn=new Scanner(System.in);
 				notice=sn.nextLine();
 				is=sc.getInputStream();
 				os=sc.getOutputStream();
 				System.out.println("내용을 입력해주세요");
 				String msg = user+" : "+notice;
-				
+				/* String word = sc2.nextLine().intern();
+				 * if(word=="exit")
+				 * system.exit(0)
+				 * 
+				 */
 				os.write(msg.getBytes());
 				os.flush();
 				
